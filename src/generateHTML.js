@@ -5,17 +5,17 @@ const Engineer = require('../lib/engineer');
 const Intern = require('../lib/intern');
 
 // This will be used for the Manager's card
-var generateManager = (memberInfo) => {
+var generateManager = (memberObject) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
       <div class="card-body manager">
-        <h5 class="card-title">${memberInfo.name}</h5>
+        <h5 class="card-title">${memberObject.name}</h5>
         <p class="card-text">Manager</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: ${memberInfo.id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${memberInfo.email}" target="_blank" class="card-link">${memberInfo.email}</a></li>
-        <li class="list-group-item">Office: ${memberInfo.office}</li>
+        <li class="list-group-item">ID: ${memberObject.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${memberObject.email}" target="_blank" class="card-link">${memberObject.email}</a></li>
+        <li class="list-group-item">Office: ${memberObject.office}</li>
       </ul>
     </div>
   </div>
@@ -24,17 +24,17 @@ var generateManager = (memberInfo) => {
 }
 
 // This will be used for the generaye Engineer card
-var generateEngineer = (memberInfo) => {
+var generateEngineer = (memberObject) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
       <div class="card-body engineer">
-        <h5 class="card-title">${memberInfo.name}</h5>
+        <h5 class="card-title">${memberObject.name}</h5>
         <p class="card-text">Engineer</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: ${memberInfo.id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${memberInfo.email}" target="_blank" class="card-link">${memberInfo.email}</a></li>
-        <li class="list-group-item">Github: <a href="https://github.com/${memberInfo.github}" target="_blank" class="card-link">${memberInfo.github}</a></li>
+        <li class="list-group-item">ID: ${memberObject.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${memberObject.email}" target="_blank" class="card-link">${memberObject.email}</a></li>
+        <li class="list-group-item">Github: <a href="https://github.com/${memberObject.github}" target="_blank" class="card-link">${memberObject.github}</a></li>
       </ul>
     </div>
   </div>
@@ -43,17 +43,17 @@ var generateEngineer = (memberInfo) => {
 }
 
 // This will be used for the literal for intern cards
-var generateIntern = (memberInfo) => {
+var generateIntern = (memberObject) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
       <div class="card-body intern">
-        <h5 class="card-title">${memberInfo.name}</h5>
+        <h5 class="card-title">${memberObject.name}</h5>
         <p class="card-text">Intern</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: ${memberInfo.id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${memberInfo.email}" target="_blank" class="card-link">${memberInfo.email}</a></li>
-        <li class="list-group-item">School: ${memberInfo.school}</li>
+        <li class="list-group-item">ID: ${memberObject.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${memberObject.email}" target="_blank" class="card-link">${memberObject.email}</a></li>
+        <li class="list-group-item">School: ${memberObject.school}</li>
       </ul>
     </div>
   </div>
