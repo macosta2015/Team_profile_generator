@@ -7,4 +7,4 @@ We are going to build a Team profile generator by asking the user several questi
 
 ## Video
 The following is the video showing the information:
-https://drive.google.com/file/d/1GC5O4Uem2z73Cgmm5dBwk4nWkXSLpUWl/view?usp=sharing
+https://drive.google.com/file/d/1tVdkksz6qtKNPIwDn5nzZZoO-eE3gv2r/view?usp=sharing
