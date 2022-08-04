@@ -7,6 +7,7 @@
     "test": "jest",
     "start": "node index"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mushymane/team-profile-generator.git"
