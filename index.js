@@ -13,17 +13,17 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'managername',
-        message: "This command line app will generate a roster page for your team. First, what is the team manager's name?"
+        message: "What is the team manager's name?"
     },
     {
         type: 'input',
         name: 'managerid',
-        message: "What is the team manager's employee ID?"
+        message: "What is the manager's ID?"
     },
     {
         type: 'input',
         name: 'manageremail',
-        message: "What is the team manager's email?",
+        message: "What is the manager's email?",
         validate: function(manageremail)
         {
             return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(manageremail);
@@ -32,7 +32,7 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'manageroffice',
-        message: "What is the team manager's office number?"
+        message: "What is the manager's office number?"
     }
 ];
 
@@ -97,7 +97,7 @@ function addEmployee() {
             {
                 type: 'list',
                 name: 'addmember',
-                message: 'Which type of team member would you like to add?',
+                message: 'Which team member would ypu like to add?',
                 choices: ['Engineer', 'Intern', "I am done adding team members"]
             }
         ])

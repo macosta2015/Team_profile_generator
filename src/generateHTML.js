@@ -78,7 +78,7 @@ function generateHTML(data) {
     
     <body>
       <header class="d-flex justify-content-center py-3">
-        <h1>The Dream Team</h1>
+        <h1>Team Profile Generator</h1>
       </header>
     
       <div class="container mt-3">

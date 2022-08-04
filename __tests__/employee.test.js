@@ -14,54 +14,54 @@ describe("Employee", () => {
     //   expect(employee.email).toEqual("elon@tesla.com");
     });
 
-    it("should throw an error if 'name' is empty", () => {
-      // Act
-      const cb = () => new Employee("", "2", "jack@twitter.com");
-      const err = new Error("Expected parameter 'name' to be a non-empty string");
+    // it("should throw an error if 'name' is empty", () => {
+    //   // Act
+    //   const cb = () => new Employee("", "2", "jack@twitter.com");
+    //   const err = new Error("Expected parameter 'name' to be a non-empty string");
 
-      // Assert
-      expect(cb).toThrowError(err);
-    });
+    //   // Assert
+    //   expect(cb).toThrowError(err);
+    // });
 
-    it("should throw an error if 'id' is empty", () => {
-        // Act
-        const cb = () => new Employee("Cathie", "", "cathie@ark.com");
-        const err = new Error("Expected parameter 'id' to be a non-empty string");
+    // it("should throw an error if 'id' is empty", () => {
+    //     // Act
+    //     const cb = () => new Employee("Cathie", "", "cathie@ark.com");
+    //     const err = new Error("Expected parameter 'id' to be a non-empty string");
   
-        // Assert
-        expect(cb).toThrowError(err);
-    });
+    //     // Assert
+    //     expect(cb).toThrowError(err);
+    // });
 
-    it("should return 'Employee' after calling getRole()", () => {
-        const employee = new Employee("Elon", "1", "elon@tesla.com");
+    // it("should return 'Employee' after calling getRole()", () => {
+    //     const employee = new Employee("Elon", "1", "elon@tesla.com");
 
-        const result = employee.getRole();
+    //     const result = employee.getRole();
 
-        expect(result).toBe('Employee');
-    });
+    //     expect(result).toBe('Employee');
+    // });
 
-    it("should return 'Jack' after calling getName()", () => {
-        const employee = new Employee("Jack", "2", "jack@twitter.com");
+    // it("should return 'Jack' after calling getName()", () => {
+    //     const employee = new Employee("Jack", "2", "jack@twitter.com");
 
-        const result = employee.getName();
+    //     const result = employee.getName();
 
-        expect(result).toBe('Jack');
-    });
+    //     expect(result).toBe('Jack');
+    // });
 
-    it("should return 'A1' after calling getName()", () => {
-        const employee = new Employee("Cathie", "A1", "cathie@ark.com");
+    // it("should return 'A1' after calling getName()", () => {
+    //     const employee = new Employee("Cathie", "A1", "cathie@ark.com");
 
-        const result = employee.getId();
+    //     const result = employee.getId();
 
-        expect(result).toBe('A1');
-    });
+    //     expect(result).toBe('A1');
+    // });
 
-    it("should return 'elon@tesla.com' after calling getEmail()", () => {
-        const employee = new Employee("Elon", "B4", "elon@tesla.com");
+    // it("should return 'elon@tesla.com' after calling getEmail()", () => {
+    //     const employee = new Employee("Elon", "B4", "elon@tesla.com");
 
-        const result = employee.getEmail();
+    //     const result = employee.getEmail();
 
-        expect(result).toBe('elon@tesla.com');
-    });
+    //     expect(result).toBe('elon@tesla.com');
+    // });
   });
 });
