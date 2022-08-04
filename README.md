@@ -1,13 +1,22 @@
-# E-commerce Back End
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Team Profile Generator
 
 ## Description 
 
-This project demonstrates Object-Relational Mapping (ORM) and the functionality of Node.js Sequelize. The routes are modularized for different endpoints. There is also a server powered by Express.js which connects to the database with the ```connection.js``` file, using the credentials found in the ```.env``` file. The database is filled with data found in the ```seeds``` directory.
+This command line app generates an HTML page that displays members of your team. Each member is an 
+instance of a Manager class, an Engineer class, or an Intern class. The user will be asked questions about 
+their team members and the information get saved into an HTML in the dist folder. The dist folder also 
+has an accompanying CSS file for slight styling.
 
-Sequelize is a promise-based ORM tool to help convert data between incompatible type systems. In this project we are essentially using MySQL in JavaScript form. There are models which represent tables. Not only can we define tables and their fields but we can also define associations between different tables, whether it is one-to-one, one-to-many, or many-to-many. The code found in the ```routes``` directory defines which CRUD operations can be performed at specified enpoints.
+It uses the npm Inquirer package to ask questions and receive input. It also uses the Node File System module 
+to write that data to a file. For testing, Jest provides the framework. There is a file called 
+generateHTML.js which generates the entire HTML file using the user's input and template literals. The cards are 
+color-coded for each type of member. When a user visits the page, they can click on the email to open their 
+default email program and populates the TO field. The user may also click on an Engineer's Github profile link.
 
-Check out a walkthrough of this project here: [Video Link](https://watch.screencastify.com/v/RzguZfGEBckV2JILwEEX)
+NOTE: if you get this project from Github, 'roster.html' will be overriden with your new input. It is only present 
+here for demonstrative purposes. Also 'index.html' is unused.
+
+Here is a video tutorial: [Tutorial](https://watch.screencastify.com/v/o5QVlEuvb6VC4WYJMaz7)
 
 ## Table of Contents
 
@@ -22,10 +31,9 @@ Check out a walkthrough of this project here: [Video Link](https://watch.screenc
 
 - JavaScript - programming language used for this app
 - Node.js - runtime environment
-- Express.js - back end web application framework
-- MySQL - relational database management system
-- dotenv - loads environment variables from a .env file into process.env
-- Insomnia - API client for testing REST endpoints
+- Inquirer - CLI for Node.js
+- Jest - JS testing framework
+- Bootstrap - CSS framework
 - Git - version control
 - Github - where the repository is hosted
 - Visual Studio Code - text editor
@@ -33,48 +41,43 @@ Check out a walkthrough of this project here: [Video Link](https://watch.screenc
 
 ## Installation
 
-- Clone from Github
+- Download from Github
 - Use your command-line to get to the project directory
-- Enter the MySQL shell to create and seed the database
-- ```mysql -u root -p```
-- ```source db/schema.sql```
-- Exit the shell
-- Install the required dependencies with ```npm install```
-- Seed the database with provided starter data ```npm run seed```
-- Start the server to test endpoints or modify the database in an API client with ```npm start```
+- Install the required dependencies with npm install
+- Run the app with node index.js
 
 ## Usage
 
-Use Insomnia or Postman to start playing around with the ```ecommerce_db``` database. You can use CRUD operations (GET, POST, PUT, DELETE) to get, add, change, or delete data in the ```api/<categories | products | tags>``` endpoints
+Answer each prompt. Press enter to submit your input. Select 'I am done building my team' to exit the application and 
+generate your page. The email prompt cannot be in non-email format else the input will not register
 
 ## Code Snippet
 
-JavaScript code for ```api/tag/:id``` route
+JavaScript code that prompts the user to add another Employee or quit the application
 ```
-router.put('/:id', async (req, res) => {
-  // update a tag's name by its `id` value
-  try {
-    const tagData = await Tag.update(
-      req.body,
-      {
-        where: {
-          id: req.params.id
-        }
-      })
-    if(tagData[0] === 0) {
-      res.status(404).json({ message: 'Unable to find tag with that id, or requested tag name is the same as current' })
-      return;
-    }
-    res.status(200).json(tagData)
-  } catch (err) {
-    console.log(err)
-    res.status(500).json(err)
-  }
-});
+function addEmployee() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'addmember',
+                message: 'Which type of team member would you like to add?',
+                choices: ['Engineer', 'Intern', "I am done adding team members"]
+            }
+        ])
+        .then((answers) => {
+            if (answers.addmember === "Engineer") {
+                addEngineer();
+            } else if (answers.addmember === "Intern") {
+                addIntern();
+            } else {
+                writeToFile("./dist/roster.html", team)
+                return;
+            }
+        })
+        .catch((err) => console.log(err))
+}
 ```
-## License
-
-This application is covered under the MIT license.
 
 ## Questions
 
