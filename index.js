@@ -9,7 +9,6 @@ const Intern = require('./lib/intern')
 
 var team = [];
 
-// Questions for the manager (assuming they are the one using the app)
 const managerQuestions = [
     {
         type: 'input',
@@ -37,7 +36,6 @@ const managerQuestions = [
     }
 ];
 
-// Questions to get Engineer info
 const engineerQuestions = [
     {
         type: 'input',
@@ -65,7 +63,6 @@ const engineerQuestions = [
     }
 ];
 
-// Questions to get Intern info
 const internQuestions = [
     {
         type: 'input',
@@ -93,8 +90,7 @@ const internQuestions = [
     }
 ];
 
-// The manager will be prompted these questions if they would like to add Employees
-// If they are done, generate the HTML file
+
 function addEmployee() {
     inquirer
         .prompt([
@@ -113,15 +109,12 @@ function addEmployee() {
             } else {
                 console.log(team)
                 writeToFile("./dist/roster.html", team)
-                // console.log(team[0].getRole())
-                // console.log(team[0] instanceof Manager)
                 return;
             }
         })
         .catch((err) => console.log(err))
 }
 
-// Adds an instance of Engineer to the team array
 function addEngineer() {
     inquirer
         .prompt(engineerQuestions)
@@ -133,7 +126,6 @@ function addEngineer() {
         .catch((err) => console.log(err))
 }
 
-// Adds an instance of Intern to the team array
 function addIntern() {
     inquirer
         .prompt(internQuestions)
@@ -145,7 +137,6 @@ function addIntern() {
         .catch((err) => console.log(err))
 }
 
-// Function to write HTML
 function writeToFile(fileName, data) {
     let teamInfo = genHTML(data);
     fs.writeFile(fileName, teamInfo, (err) => {
@@ -153,7 +144,6 @@ function writeToFile(fileName, data) {
     })
 }
 
-// Function to initialize app
 function init() {
     inquirer
         .prompt(managerQuestions)
@@ -165,5 +155,4 @@ function init() {
         .catch((err) => console.log(err))
 }
 
-// Function call to initialize app
 init();
