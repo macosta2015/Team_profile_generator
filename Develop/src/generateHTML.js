@@ -23,7 +23,7 @@ var generateManager = (memberObject) => {
   `
 }
 
-// This will be used for the generaye Engineer card
+// This will be used to generate Engineer card
 var generateEngineer = (memberObject) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
